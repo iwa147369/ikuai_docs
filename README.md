@@ -9,14 +9,24 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 
 - [System Overview](overview.md)
 
+---
+
 ### Status Monitor
+
+Real-time visibility into what the router is doing. Covers per-client traffic usage, WAN line health, CPU/memory load, active protocol distribution, and whether traffic-control policies are firing correctly. Use this section to spot bottlenecks, confirm policies are applied, and monitor line states without touching any config.
+
 - [Line Monitoring](status-monitor/line-monitoring.md)
 - [Terminal Monitoring](status-monitor/terminal-monitoring.md)
 - [Protocol Monitoring](status-monitor/protocol-monitoring.md)
 - [Load Monitoring](status-monitor/load-monitoring.md)
 - [Policy Monitoring](status-monitor/policy-monitoring.md)
 
+---
+
 ### Network Settings
+
+Core network infrastructure configuration. This is where you set up WAN connections, hand out IPs via DHCP, configure DNS resolution, segment the network with VLANs, define NAT behavior, create address groups for reuse elsewhere, and set up port forwarding, UPnP, DMZ, static routes, and VPN client tunnels.
+
 - [WAN Settings](network/wan.md)
 - **DHCP**
   - [DHCP Server](network/dhcp-server.md)
@@ -39,7 +49,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
   - [IPSec VPN](network/vpn-ipsec.md)
   - [OpenVPN Client](network/vpn-openvpn.md)
 
+---
+
 ### Traffic Control
+
+Bandwidth management and multi-WAN routing. Smart Traffic Control applies protocol-aware QoS across all clients automatically. Rate limiting caps upload/download per IP or MAC. Multi-WAN load balancing spreads connections across lines and can steer specific protocols, ports, or domains to preferred WAN exits. Upload/download separation lets upstream and downstream traffic take different WAN paths.
+
 - [Smart Traffic Control](traffic-control/smart-traffic-control.md)
 - [IP Rate Limit](traffic-control/ip-rate-limit.md)
 - [MAC Rate Limit](traffic-control/mac-rate-limit.md)
@@ -50,18 +65,33 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 - [Domain Routing](traffic-control/domain-routing.md)
 - [Advanced Custom Protocol](traffic-control/advanced-custom-protocol.md)
 
+---
+
 ### AC Management (Wireless)
+
+Centralized management of iKuai-compatible wireless access points (APs). The router acts as a wireless controller (AC), pushing configuration to all connected APs, grouping them for bulk changes, and showing which wireless clients are connected to which AP. Requires compatible AP hardware running iKuai AP firmware.
+
 - [Wireless Overview](ac/wireless-overview.md)
 - [AP List](ac/ap-list.md)
 - [AP Groups](ac/ap-groups.md)
 - [Wireless Terminals](ac/wireless-terminals.md)
 
+---
+
 ### Security Settings
+
+Access control at the packet level. ACL rules allow or block traffic based on IP, port, protocol, and direction. ARP binding ties IP addresses to specific MAC addresses to prevent spoofing and unauthorized access. Connection limiting caps the number of concurrent sessions per IP to protect against abuse or runaway connections.
+
 - [ACL Rules](security/acl.md)
 - [ARP Binding](security/arp.md)
 - [Connection Limit](security/connection-limit.md)
 
+---
+
 ### Behavior Control
+
+Per-client internet behavior policies. Block secondary routers sharing the connection, enforce per-protocol allow/deny rules, restrict which QQ accounts can log in from which IPs, block or whitelist websites by domain, intercept and redirect HTTP traffic, and log browsing and IM activity for auditing. All controls apply to HTTP traffic; HTTPS requires protocol-level rules.
+
 - [Network Sharing Control](behavior-control/network-sharing-control.md)
 - [Application Protocol Control](behavior-control/app-protocol-control.md)
 - [Terminal Name Management](behavior-control/terminal-name-management.md)
@@ -81,7 +111,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
   - [Keyword Replacement](behavior-control/url-redirect/keyword-replacement.md)
   - [Parameter Replacement](behavior-control/url-redirect/parameter-replacement.md)
 
+---
+
 ### Auth & Billing
+
+Authentication and account management for multi-tenant or ISP-style deployments. Clients can be required to log in via PPPoE dial-up or a captive portal (WEB auth) before getting internet access. Push notifications interrupt HTTP browsing to display messages or expiry alerts. VPN server modes (PPPoE, L2TP, PPTP, OpenVPN) allow remote access. Accounts track quotas, expiry dates, and shared session limits.
+
 - **Push Notifications**
   - [Real-time Notification](auth-billing/realtime-notification.md)
   - [Periodic Notification](auth-billing/realtime-notification/periodic-notification.md)
@@ -97,7 +132,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
   - [Account Management](auth-billing/accounts/account-management.md)
   - [Internet Access Code](auth-billing/accounts/access-code.md)
 
+---
+
 ### System Settings
+
+Router-level configuration that affects the entire system. Covers the core operating mode (NAT/route/bypass), acceleration, time sync, admin accounts, remote access, firmware upgrades, config backup/restore, cloud platform binding, and disk partition management for extended storage (behavior logs, video cache, FTP, etc.).
+
 - [Basic Settings](system/basic-settings.md)
 - [Restart / Shutdown](system/restart-shutdown.md)
 - [Hardware Info](system/hardware-info.md)
@@ -110,7 +150,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 - [Disk Management](system/disk-management.md)
 - [File Management](system/disk-management/file-management.md)
 
+---
+
 ### Log Center
+
+Event history for every major subsystem. Logs cover system startup/shutdown, admin operations, authentication attempts (PPPoE/VPN/WEB), ARP attacks, DHCP assignments, push notification delivery, WAN dial-in/dial-out events, DDNS updates, and wireless client connections. Most logs are circular buffers with fixed entry limits; some require a minimum disk size.
+
 - [System Log](logs/system-log.md)
 - [Operation Log](logs/system-log/operation-log.md)
 - [Authentication Log](logs/auth-log.md)
@@ -121,7 +166,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 - [WAN Dial Log](logs/dhcp-log/wan-dial-log.md)
 - [Dynamic DNS Log](logs/dhcp-log/ddns-log.md)
 
+---
+
 ### Tools
+
+Built-in diagnostic and calculation utilities. Use these to test connectivity (PING, route trace), measure actual line throughput (speed test), run an automated health check across all subsystems, trace subnet math, or trigger a full router self-diagnostic scan that flags disk errors, rogue DHCP servers, ARP conflicts, and PPPoE anomalies.
+
 - [PING Test](tools/ping.md)
 - [Route Trace](tools/route-trace.md)
 - [Line Speed Test](tools/speed-test.md)
@@ -129,7 +179,12 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 - [Subnet Calculator](tools/subnet-calculator.md)
 - [Health Check](tools/health-check.md)
 
+---
+
 ### Advanced Applications
+
+Optional services that extend the router beyond basic routing. Includes video/app caching to save WAN bandwidth, a KVM-based virtual machine environment for running third-party OS images on the same hardware, a DDNS client, FTP and HTTP file servers, Wake-on-LAN, port mirroring for traffic analysis, SNMP for network monitoring integration, and Cross-Layer 3 Application for applying MAC-based policies through Layer 3 switches.
+
 - [Wake on LAN](advanced/wake-on-lan.md)
 - [Cache Settings](advanced/cache-settings.md)
 - [Virtual Machine](advanced/virtual-machine.md)
