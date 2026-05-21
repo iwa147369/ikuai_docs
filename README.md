@@ -13,13 +13,18 @@ Source: https://www.ikuai8.com/support/ymgn/lyym/
 
 ### Status Monitor
 
-Real-time visibility into what the router is doing. Covers per-client traffic usage, WAN line health, CPU/memory load, active protocol distribution, and whether traffic-control policies are firing correctly. Use this section to spot bottlenecks, confirm policies are applied, and monitor line states without touching any config.
+Real-time visibility into what the router is doing. Covers per-client traffic usage (IPv4 and IPv6), WAN line health, CPU/memory load, active protocol distribution, traffic diversion statistics, and whether traffic-control policies are firing correctly. Also shows connected IP camera management shortcuts, SNMP-monitored switch status, and cloud-registered peripheral devices.
 
 - [Line Monitoring](status-monitor/line-monitoring.md)
 - [Terminal Monitoring](status-monitor/terminal-monitoring.md)
+- [IPv6 Terminal Monitoring](status-monitor/ipv6.md)
 - [Protocol Monitoring](status-monitor/protocol-monitoring.md)
 - [Load Monitoring](status-monitor/load-monitoring.md)
 - [Policy Monitoring](status-monitor/policy-monitoring.md)
+- [Traffic Diversion Monitoring](status-monitor/diversion-monitoring.md)
+- [Camera Monitoring](status-monitor/camera-monitoring.md)
+- [Switch Monitoring](status-monitor/switch-monitoring.md)
+- [Peripheral Device Monitoring](status-monitor/peripheral-monitoring.md)
 
 ---
 
@@ -28,6 +33,8 @@ Real-time visibility into what the router is doing. Covers per-client traffic us
 Core network infrastructure configuration. This is where you set up WAN connections, hand out IPs via DHCP, configure DNS resolution, segment the network with VLANs, define NAT behavior, create address groups for reuse elsewhere, and set up port forwarding, UPnP, DMZ, static routes, and VPN client tunnels.
 
 - [WAN Settings](network/wan.md)
+- [WiFi Settings](network/wifi.md)
+- [IPv6 Configuration](network/ipv6.md)
 - **DHCP**
   - [DHCP Server](network/dhcp-server.md)
   - [Static Leases](network/dhcp-static.md)
@@ -40,10 +47,15 @@ Core network infrastructure configuration. This is where you set up WAN connecti
 - [IP Groups](network/ip-groups.md)
 - [MAC Groups](network/mac-groups.md)
 - [Static Routes](network/static-routes.md)
+- [Current Routing Table](network/routing-table.md)
+- [IGMP Proxy](network/igmp.md)
+- [IPTV Pass-through](network/iptv.md)
+- [Mesh Quick Connect](network/mesh.md)
 - [Port Forwarding](network/port-forwarding.md)
 - [UPnP](network/upnp.md)
 - [DMZ](network/dmz.md)
 - **VPN Clients**
+  - [VPN Client Overview](network/vpn-client.md)
   - [PPTP Client](network/vpn-pptp.md)
   - [L2TP Client](network/vpn-l2tp.md)
   - [IPSec VPN](network/vpn-ipsec.md)
@@ -63,28 +75,37 @@ Bandwidth management and multi-WAN routing. Smart Traffic Control applies protoc
 - [Protocol Routing](traffic-control/protocol-routing.md)
 - [Port Routing](traffic-control/port-routing.md)
 - [Domain Routing](traffic-control/domain-routing.md)
+- [Custom Protocol](traffic-control/custom-protocol.md)
 - [Advanced Custom Protocol](traffic-control/advanced-custom-protocol.md)
 
 ---
 
 ### AC Management (Wireless)
 
-Centralized management of iKuai-compatible wireless access points (APs). The router acts as a wireless controller (AC), pushing configuration to all connected APs, grouping them for bulk changes, and showing which wireless clients are connected to which AP. Requires compatible AP hardware running iKuai AP firmware.
+Centralized management of iKuai-compatible wireless access points (APs). The router acts as a wireless controller (AC), pushing configuration to all connected APs, grouping them for bulk changes, and showing which wireless clients are connected to which AP. Supports 802.1X/RADIUS authentication, per-MAC/SSID blacklist/whitelist controls, wireless Terminal VLAN assignment, automated channel and power optimization, and batch AP firmware upgrades. Requires compatible AP hardware running iKuai AP firmware.
 
+- [AC Management Demo](ac/ac-management-demo.md)
 - [Wireless Overview](ac/wireless-overview.md)
 - [AP List](ac/ap-list.md)
 - [AP Groups](ac/ap-groups.md)
+- [AP System Upgrade](ac/ap-system-upgrade.md)
 - [Wireless Terminals](ac/wireless-terminals.md)
+- [Wireless Terminal VLAN](ac/wireless-terminal-vlan.md)
+- [Wireless Blacklist/Whitelist](ac/wireless-blacklist-whitelist.md)
+- [Wireless Network Optimization](ac/wireless-network-optimization.md)
+- [802.1x Authentication](ac/802-1x-authentication.md)
 
 ---
 
 ### Security Settings
 
-Access control at the packet level. ACL rules allow or block traffic based on IP, port, protocol, and direction. ARP binding ties IP addresses to specific MAC addresses to prevent spoofing and unauthorized access. Connection limiting caps the number of concurrent sessions per IP to protect against abuse or runaway connections.
+Access control at the packet level. ACL rules allow or block traffic based on IP, port, protocol, and direction. ARP binding ties IP addresses to specific MAC addresses to prevent spoofing and unauthorized access. Connection limiting caps the number of concurrent sessions per IP to protect against abuse or runaway connections. Cloud Firewall adds IPS, antivirus, and threat intelligence as a cloud-activated service. Advanced Settings covers PING/traceroute restrictions, gaming latency tweaks, and TCP-MSS tuning.
 
 - [ACL Rules](security/acl.md)
 - [ARP Binding](security/arp.md)
 - [Connection Limit](security/connection-limit.md)
+- [Cloud Firewall](security/cloud-firewall.md)
+- [Advanced Settings](security/advanced-settings.md)
 
 ---
 
@@ -102,6 +123,7 @@ Per-client internet behavior policies. Block secondary routers sharing the conne
   - [URL Browsing History](behavior-control/behavior-record-settings/url-browsing-history.md)
   - [IM Records](behavior-control/behavior-record-settings/im-records.md)
   - [Terminal Online/Offline Records](behavior-control/behavior-record-settings/terminal-online-offline.md)
+  - [Exempt from Recording](behavior-control/behavior-record-settings/exempt-recording.md)
 - **URL Blacklist/Whitelist**
   - [URL Blacklist/Whitelist](behavior-control/url-blacklist-whitelist.md)
   - [Custom URL Library](behavior-control/url-blacklist-whitelist/custom-url-library.md)
@@ -136,18 +158,24 @@ Authentication and account management for multi-tenant or ISP-style deployments.
 
 ### System Settings
 
-Router-level configuration that affects the entire system. Covers the core operating mode (NAT/route/bypass), acceleration, time sync, admin accounts, remote access, firmware upgrades, config backup/restore, cloud platform binding, and disk partition management for extended storage (behavior logs, video cache, FTP, etc.).
+Router-level configuration that affects the entire system. Covers the core operating mode (NAT/route/bypass), acceleration, time sync, admin accounts, remote access, firmware upgrades, config backup/restore, cloud platform binding, disk partition management for extended storage (behavior logs, video cache, FTP, etc.), dual-machine hot standby failover, ALG for special protocols (FTP/SIP/H.323), app integration (DingTalk/WeChat Work), CPU interrupt tuning, and kernel TCP/UDP timeout parameters.
 
 - [Basic Settings](system/basic-settings.md)
 - [Restart / Shutdown](system/restart-shutdown.md)
 - [Hardware Info](system/hardware-info.md)
+- [Hot Standby](system/hot-standby.md)
 - [iKuai Cloud Binding](system/cloud-binding.md)
 - [Firmware Upgrade](system/firmware-upgrade.md)
 - [System Backup](system/firmware-upgrade/system-backup.md)
+- [Application Binding](system/app-binding.md)
+- [ALG Settings](system/alg-settings.md)
+- [CPU Interrupt Control](system/cpu-interrupt.md)
+- [Kernel Settings](system/kernel-settings.md)
 - **Admin**
   - [Account Settings](system/admin/account-settings.md)
   - [Remote Access](system/admin/remote-access.md)
 - [Disk Management](system/disk-management.md)
+- [RAID Management](system/disk-management/raid.md)
 - [File Management](system/disk-management/file-management.md)
 
 ---
@@ -158,6 +186,7 @@ Event history for every major subsystem. Logs cover system startup/shutdown, adm
 
 - [System Log](logs/system-log.md)
 - [Operation Log](logs/system-log/operation-log.md)
+- [Message Notifications](logs/system-log/message-notifications.md)
 - [Authentication Log](logs/auth-log.md)
 - [ARP Log](logs/auth-log/arp-log.md)
 - [Wireless Terminal Log](logs/auth-log/wireless-terminal-log.md)
@@ -187,6 +216,7 @@ Optional services that extend the router beyond basic routing. Includes video/ap
 
 - [Wake on LAN](advanced/wake-on-lan.md)
 - [Cache Settings](advanced/cache-settings.md)
+- [Cache Status](advanced/cache-status.md)
 - [Virtual Machine](advanced/virtual-machine.md)
 - [Port Mirroring](advanced/port-mirroring.md)
 - [Dynamic DNS](advanced/dynamic-dns.md)
