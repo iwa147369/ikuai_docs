@@ -20,4 +20,4 @@ Filter by notification type (all / real-time / periodic / expiry). Enter a speci
 
 ## III. Log Retention
 
-Max entries: **500**. See [System Log](../xtrz.md) for the full retention table.
+Max entries: **500**. See [System Log](../system-log.md) for the full retention table.

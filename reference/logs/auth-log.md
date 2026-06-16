@@ -58,4 +58,4 @@ Export logs as CSV or TXT using the **Export** button. Clear all logs with **Cle
 
 ## IV. Log Retention
 
-Max entries: **20,000** (Auth Log). See [System Log](xtrz.md) for the full retention table.
+Max entries: **20,000** (Auth Log). See [System Log](system-log.md) for the full retention table.

@@ -25,4 +25,4 @@ Export the wireless terminal internet access log.
 
 ## III. Log Retention
 
-Max entries: **10,000**. See [System Log](../xtrz.md) for the full retention table.
+Max entries: **10,000**. See [System Log](../system-log.md) for the full retention table.

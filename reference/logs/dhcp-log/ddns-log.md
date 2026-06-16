@@ -22,4 +22,4 @@ Clear the log using the Clear button in the top-right corner.
 
 ## III. Log Retention
 
-Max entries: **5,000**. See [System Log](../xtrz.md) for the full retention table.
+Max entries: **5,000**. See [System Log](../system-log.md) for the full retention table.

@@ -34,4 +34,4 @@ The DHCP address assignment process:
 
 ## III. Log Retention
 
-Max entries: **20,000**. See [System Log](xtrz.md) for the full retention table.
+Max entries: **20,000**. See [System Log](system-log.md) for the full retention table.
